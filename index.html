@@ -4,9 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <title>Shopping Cart</title>
   </head>
   <body>
+    <!-- Header -->
+    <header class="header centering">
+      <h2>Shopping Cart</h2>
+
+      <div class="search-box centering">
+        <input type="text" placeholder="search..." class="search-input" />
+        <button class="search-button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <div>
+        <a class="login">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Login</span>
+        </a>
+        <a class="dashboard">
+          <i class="fa-solid fa-house"></i>
+          <span>dashboard</span>
+        </a>
+      </div>
+
+      <div class="open-menu"><i class="fa-solid fa-bars"></i></div>
+    </header>
+
+    <!-- Menu -->
+    <div class="list-menu">
+      <div class="close-menu"><i class="fa-solid fa-close"></i></div>
+      <h3>Shopping Cart</h3>
+
+      <div class="search-box search-box-menu centering">
+        <input type="text" placeholder="search..." class="search-input" />
+        <button class="search-button centering">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <a class="login login-menu centering">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        <span>Login</span>
+      </a>
+      <a class="dashboard dashboard-menu centering">
+        <i class="fa-solid fa-house"></i>
+        <span>dashboard</span>
+      </a>
+    </div>
     <script src="./js/index.js"></script>
   </body>
 </html>
