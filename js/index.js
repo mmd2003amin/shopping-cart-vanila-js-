@@ -6,9 +6,18 @@ const listMenu = document.querySelector(".list-menu");
 const container = document.querySelector(".container");
 const cards = document.querySelector(".cards");
 const loading = document.querySelector(".loading");
+const searchInput = document.querySelector(".search-input");
+const searchButton = document.querySelector(".search-button");
+const searchInputMenu = document.querySelector(".search-input-menu");
+const searchButtonMenu = document.querySelector(".search-button-menu");
+const filterItems = document.querySelectorAll(".filter-item");
+
+let allProduct = null;
+let category = "ALL";
+let search = "";
 
 const init = async () => {
-  const allProduct = await fetchData("products");
+  allProduct = await fetchData("products");
   renderProducts(allProduct);
   start();
 };
@@ -57,6 +66,35 @@ const start = () => {
   container.style.display = "flex";
 };
 
+const searchHandler = () => {
+  search = searchInput.value.trim().toUpperCase();
+  filterProducts();
+};
+
+const searchMenuHandler = () => {
+  search = searchInputMenu.value.trim().toUpperCase();
+  filterProducts();
+};
+
+const selectCategory = (e) => {
+  category = e.target.innerText.toUpperCase();
+  filterProducts();
+};
+
+const filterProducts = () => {
+  const filter = allProduct.filter((product) => {
+    if (category === "ALL") {
+      return product.title.toUpperCase().includes(search);
+    } else {
+      return (
+        product.category.toUpperCase() === category &&
+        product.title.toUpperCase().includes(search)
+      );
+    }
+  });
+  renderProducts(filter);
+};
+
 const openMenuHandler = () => {
   listMenu.style.transform = "translateY(0)";
 };
@@ -68,3 +106,6 @@ const closeMenuHandler = () => {
 openMenu.addEventListener("click", openMenuHandler);
 closeMenu.addEventListener("click", closeMenuHandler);
 document.addEventListener("DOMContentLoaded", init);
+searchButton.addEventListener("click", searchHandler);
+searchButtonMenu.addEventListener("click", searchMenuHandler);
+filterItems.forEach((li) => li.addEventListener("click", selectCategory));
