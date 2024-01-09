@@ -45,7 +45,7 @@ const renderProducts = (data) => {
         
             <div class="about centering">
             <span class="price">$ ${price}</span>
-            <div class="buy centering">
+            <div class="buy centering" onclick="clickHandler()">
                 <p>Buy</p>
                 <i class="fa-solid fa-shopping-cart"></i>
             </div>

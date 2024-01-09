@@ -81,7 +81,10 @@ body {
 }
 
 .login,
-.dashboard {
+.dashboard,
+.logout {
+  text-decoration: none;
+  color: var(--text);
   border: 1px solid var(--text);
   border-radius: 8px;
   padding: 7px;
@@ -92,7 +95,8 @@ body {
 }
 
 .login:hover,
-.dashboard:hover {
+.dashboard:hover,
+.logout:hover {
   color: var(--bg-box);
   background-color: var(--text);
 }
