@@ -106,9 +106,8 @@ body {
   display: none;
   background-color: var(--bg-box);
   box-shadow: var(--shadow);
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
   width: 100vw;
   height: 40vh;
   z-index: 10;
@@ -135,12 +134,16 @@ body {
   width: 130px;
 }
 
+.container {
+  display: none;
+}
+
 .cards {
-  width: 90vw;
+  width: 75vw;
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(4, 1fr);
-  margin: 70px auto 10px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 70px 30px 10px;
   display: none;
 }
 
@@ -149,6 +152,11 @@ body {
   background-color: var(--bg-box);
   border-radius: 12px;
   padding: 12px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
 }
 
 .points {
@@ -221,15 +229,58 @@ body {
   margin-left: 5px;
 }
 
-@media (max-width: 1100px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.filter {
+  margin: 70px auto 20px;
+  padding: 15px;
+  border-radius: 8px;
+  height: fit-content;
+  box-shadow: var(--shadow);
+  background-color: var(--bg-box);
+  position: sticky;
+  top: 150px;
 }
 
-@media (max-width: 840px) {
+.filter p {
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+.filter-items {
+  font-size: 17px;
+  font-weight: 600;
+  list-style-type: none;
+  margin-top: 15px;
+}
+
+.filter-items li {
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-items li:hover {
+  background-color: var(--bg-blue);
+  color: var(--bg-buttons);
+}
+
+@media (max-width: 1000px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .cards {
+    margin-top: 0;
+  }
+
+  .filter {
+    position: static;
   }
 }
 
@@ -289,15 +340,13 @@ body {
   .login-menu i {
     font-size: 19px;
   }
-}
 
-@media (max-width: 540px) {
   .cards {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
-@media (max-width: 240px) {
+@media (max-width: 300px) {
   .image-card {
     width: 130px;
     height: 130px;

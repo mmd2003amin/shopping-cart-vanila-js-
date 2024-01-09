@@ -3,6 +3,7 @@ import { fetchData } from "../utils/httpRequest.js";
 const openMenu = document.querySelector(".open-menu");
 const closeMenu = document.querySelector(".close-menu");
 const listMenu = document.querySelector(".list-menu");
+const container = document.querySelector(".container");
 const cards = document.querySelector(".cards");
 const loading = document.querySelector(".loading");
 
@@ -53,6 +54,7 @@ const shortenText = (text) => {
 const start = () => {
   loading.style.display = "none";
   cards.style.display = "grid";
+  container.style.display = "flex";
 };
 
 const openMenuHandler = () => {
