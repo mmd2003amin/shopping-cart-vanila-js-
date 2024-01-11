@@ -11,6 +11,9 @@ const searchButton = document.querySelector(".search-button");
 const searchInputMenu = document.querySelector(".search-input-menu");
 const searchButtonMenu = document.querySelector(".search-button-menu");
 const filterItems = document.querySelectorAll(".filter-item");
+const login = document.querySelectorAll(".login");
+const dashboardMenu = document.querySelector(".dashboard-menu");
+const dashboard = document.querySelector(".dashboard");
 
 let allProduct = null;
 let category = "ALL";
@@ -20,8 +23,16 @@ const init = async () => {
   allProduct = await fetchData("products");
   renderProducts(allProduct);
   start();
+  if (!document.cookie) {
+    dashboardMenu.style.display = "none";
+  } else {
+    dashboard.style.display = "flex";
+    login.forEach((i) => (i.style.display = "none"));
+  }
+  if (innerWidth < 668) {
+    dashboard.style.display = "none";
+  }
 };
-
 const renderProducts = (data) => {
   cards.innerHTML = "";
   const mapData = data.map((product) => {

@@ -1,12 +1,15 @@
+import authHandler from "../utils/authorization.js";
 import { fetchData } from "../utils/httpRequest.js";
 
 const loading = document.querySelector(".loading");
 const cards = document.querySelector(".cards-user");
+const logout = document.querySelector(".logout");
 
 const init = async () => {
   const products = await fetchData("users");
   renderUsers(products);
   start();
+  authHandler();
 };
 
 const renderUsers = (products) => {
@@ -50,4 +53,9 @@ const start = () => {
   cards.style.display = "flex";
 };
 
+const logoutHandler = () => {
+  document.cookie = "token=;max-age=0";
+};
+
 document.addEventListener("DOMContentLoaded", init);
+logout.addEventListener("click", logoutHandler);

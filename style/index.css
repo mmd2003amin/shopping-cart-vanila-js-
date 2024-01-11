@@ -80,6 +80,10 @@ body {
   background-color: var(--bg-button-hover);
 }
 
+.dashboard {
+  display: none;
+}
+
 .login,
 .dashboard,
 .logout {
@@ -332,7 +336,7 @@ body {
   .search-button i {
     font-size: 17px;
   }
-
+  
   .dashboard-menu,
   .login-menu {
     display: flex;

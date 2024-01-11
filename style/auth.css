@@ -48,10 +48,11 @@
 
 .back {
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .back p {
-  color: black;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
